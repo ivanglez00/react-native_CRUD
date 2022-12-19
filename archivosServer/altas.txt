@@ -1,0 +1,38 @@
+<?php
+
+$Nombre = $_GET['nombre'];
+$Codigo = $_GET['codigo'];
+$Tarea = $_GET['tarea'];
+$imagen = $_GET['imagen'];
+
+
+
+
+
+//credenciales
+$server = "localhost";
+$user = "id19579377_ivan";
+$password = "Qwerty1245._";
+$db = "id19579377_datos";
+
+//conexion al server base de datos
+$conn = mysqli_connect($server,$user,$password,$db);
+
+if(!$conn){
+    echo"error de cnexion" . mysqli_connect_error();
+}
+
+//ejecutar la insercion
+$sql= "INSERT INTO `datos`( `Nombre`, `Codigo`, `Tarea`, `imagen`) VALUES ('$Nombre','$Codigo','$Tarea','$imagen')";
+
+if(mysqli_query($conn,$sql)){
+    echo "1";
+}else{
+    echo "0";
+}
+
+mysqli_close($conn);
+
+
+
+?>

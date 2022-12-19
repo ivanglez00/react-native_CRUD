@@ -1,0 +1,36 @@
+<?php
+
+
+$Tarea = $_GET['tarea'];
+$imagen = $_GET['imagen'];
+$id = $_GET['id'];
+
+
+//credenciales
+$server = "localhost";
+$user = "id19579377_ivan";
+$password = "Qwerty1245._";
+$db = "id19579377_datos";
+
+//conexion al server base de datos
+$conn = mysqli_connect($server,$user,$password,$db);
+
+if(!$conn){
+    echo"error de cnexion" . mysqli_connect_error();
+}
+
+//querry para los cambios
+$sql = "UPDATE `datos` SET `Tarea`='$Tarea',`imagen`='$imagen' WHERE `id`='$id' ";
+
+//verificacion para ver si funciona
+if(mysqli_query($conn,$sql)){
+    echo "1";
+}else{
+    echo "0";
+}
+
+mysqli_close($conn);
+
+
+
+?>
